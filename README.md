@@ -1,10 +1,23 @@
-# nvim-dap-go-mono.nvim
+<h1 align="center">nvim-dap-go-mono.nvim</h1>
 
-A Neovim plugin for debugging Go microservices.
+This plugin extends the functionality of [nvim-dap-go](https://github.com/leoluz/nvim-dap-go) specifically tailored for debugging microservices in a mono repository, the way I want it.
 
-## Description
+The project structure that this plugin is useful for looks like the following example. Note that you can specify your own substitution_path and remote_path_prefix to adjust to your own mono-repositories strucure and container path.
 
-This plugin extends the functionality of nvim-dap for Go, specifically tailored for debugging microservices in a mono repository
+```
+my-project/
+├── go.mod
+├── go.sum
+└── services/
+    ├── service1/
+    │   ├── main.go
+    │   ├── go.mod
+    │   └── go.sum
+    └── service2/
+        ├── main.go
+        ├── go.mod
+        └── go.sum
+```
 
 ## Installation
 
@@ -27,7 +40,7 @@ return {
                 { name = "exampleService1", port = 1 },
                 { name = "exampleService2", port = 2 },
             },
-            substitution_path = "${workspaceFolder}/services",
+            substitution_path = "${workspaceFolder}/services/",
             remote_path_prefix = "app/"
         })
 
